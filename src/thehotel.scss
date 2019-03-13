@@ -1,0 +1,125 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$the-primary: (
+        50 : #f6fbfb,
+        100 : #e8f5f4,
+        200 : #d9efed,
+        300 : #c9e9e6,
+        400 : #bee4e0,
+        500 : #b2dfdb,
+        600 : #abdbd7,
+        700 : #a2d7d2,
+        800 : #99d2cd,
+        900 : #8acac4,
+        A100 : #ffffff,
+        A200 : #ffffff,
+        A400 : #f6fffe,
+        A700 : #dcfffc,
+        contrast: (
+            50 : #000000,
+            100 : #000000,
+            200 : #000000,
+            300 : #000000,
+            400 : #000000,
+            500 : #000000,
+            600 : #000000,
+            700 : #000000,
+            800 : #000000,
+            900 : #000000,
+            A100 : #000000,
+            A200 : #000000,
+            A400 : #000000,
+            A700 : #000000,
+        )
+    );
+    
+
+    $the-accent: (
+        50 : #fffefb,
+        100 : #fffdf6,
+        200 : #fffcf0,
+        300 : #fffaea,
+        400 : #fff9e6,
+        500 : #fff8e1,
+        600 : #fff7dd,
+        700 : #fff6d9,
+        800 : #fff5d5,
+        900 : #fff3cd,
+        A100 : #ffffff,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+        contrast: (
+            50 : #000000,
+            100 : #000000,
+            200 : #000000,
+            300 : #000000,
+            400 : #000000,
+            500 : #000000,
+            600 : #000000,
+            700 : #000000,
+            800 : #000000,
+            900 : #000000,
+            A100 : #000000,
+            A200 : #000000,
+            A400 : #000000,
+            A700 : #000000,
+        )
+    );
+
+
+
+$thehotel-primary: mat-palette($the-primary, 700,300, 900);
+$thehotel-accent:  mat-palette($the-accent, 500,400,700);
+
+
+$thehotel-warn:    mat-palette($mat-red);
+
+
+$thehotel-theme: mat-light-theme($thehotel-primary, $thehotel-accent, $thehotel-warn);
+
+@import './app/navigation/navtabs/navtabs.components-theme.scss';
+
+@include angular-material-theme($thehotel-theme);
+//Navtabs component scss file
+@include navtabs-component-theme($thehotel-theme);
+
+///////////////////////////////
+$the-typography: mat-typography-config(
+    $font-family:   'Rubik, sans-serif',
+    $display-4:     mat-typography-level(112px, 112px, 300),
+    $display-3:     mat-typography-level(56px, 56px, 400),
+    $display-2:     mat-typography-level(45px, 48px, 400),
+    $display-1:     mat-typography-level(34px, 40px, 400),
+    $headline:      mat-typography-level(97.54px, 32px, 400),
+    $title:         mat-typography-level(60px, normal, 500),
+    $subheading-2:  mat-typography-level(20.77px, normal, 400),
+    $subheading-1:  mat-typography-level(34.54px, normal, 400),
+    $body-2:        mat-typography-level(14.22px, normal, 500),
+    $body-1:        mat-typography-level(16.26px, normal, 400),
+    $caption:       mat-typography-level(14.19px, normal, 400),
+    $button:        mat-typography-level(14.22px, normal, 500),
+    // Line-height must be unit-less fraction of the font-size.
+    $input:         mat-typography-level(inherit, 1.125, 400)
+  ) ;
+  
+  // Override typography CSS classes (e.g., mat-h1, mat-display-1, mat-typography, etc.).
+@include mat-base-typography($the-typography);
+
+// Override typography for a specific Angular Material components.
+@include mat-checkbox-typography($the-typography);
+
+// Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($the-typography);
+@include mat-core($the-typography);
+
+.mat-list-option:hover,
+.mat-list-option.mat-list-item-focus,
+.mat-nav-list .mat-list-iten:hover,
+.mat-nav-list .mat-list-item.mat-list-item-focus{
+
+  background-color:   mat-color($thehotel-primary, 300);
+  color: mat-color($thehotel-primary, 900);
+}

@@ -1,0 +1,12 @@
+.logo-container{
+    width: 90%;
+    margin-right:80px;
+    padding-right : 80%;
+}
+.logo{
+    padding-left : 150%;
+    width:90px;
+}
+mat-toolbar{
+    height: 90px;
+}
